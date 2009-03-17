@@ -1,0 +1,1 @@
+Shorty is simple URL shortener written in Ruby using Sinatra + Sequel + SQLite + Haml.

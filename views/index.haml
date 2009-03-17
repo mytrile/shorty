@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
+    %title
+      Shorty - URL shortener with Sinatra
+  %body
+    %div{ :align => "center" }
+      %h1
+        Shorty
+      %form{ :action => "/", :method => "post", "accept-charset" => "utf-8" }
+        %p
+          %input{ :name => "url", :type => "text", :value => "" }
+        %p
+          %input{ :type => "submit", :value => "Shorten &rarr;" }
+      %h1
+        %h2
+          Recent urls
+      %div
+        - @data.each do |d|
+          = HOST + d[:surl]
+          %-
+          = d[:url]
+          %br/

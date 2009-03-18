@@ -34,6 +34,7 @@ end
 
 private 
 
+# link "helper"
 def link_to (name, url, target="_blank")
   "<a href="+url+" target=\""+target+"\">"+name+"</a>"
 end

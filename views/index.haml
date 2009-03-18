@@ -4,21 +4,26 @@
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
     %title
       Shorty - URL shortener with Sinatra
+    %link{ 'type' => "text/css", :href   => "style.css", :rel => 'stylesheet' }
   %body
-    %div{ :align => "center" }
-      %h1
-        Shorty
-      %form{ :action => "/", :method => "post", "accept-charset" => "utf-8" }
-        %p
-          %input{ :name => "url", :type => "text", :value => "" }
-        %p
-          %input{ :type => "submit", :value => "Shorten &rarr;" }
-      %h1
-        %h2
-          Recent urls
-      %div
-        - @data.each do |d|
-          = HOST + d[:surl]
-          %-
-          = d[:url]
-          %br/
+    #wrapper
+      %img{:src => "logo.png", :alt => "My Pic"}
+      .myform{:id => "stylized"}
+        %form{ :action => "/", :method => "post", "accept-charset" => "utf-8" }
+          %p
+            %input{ :name => "url", :type => "text", :value => "", :size => '36'  }
+            %input{ :type => "submit", :value => "Shorten &rarr;", :class => "button"}
+      %br/
+      %br/
+      - if @data
+        %h1
+          ="Your url is #{HOST}" + @data.first[:surl]
+      %br/
+      %br/
+      %br/
+      %br/
+      %p
+        Developed by
+        =link_to 'Mitko Kostov', 'http://7thoughts.com/mitkok'
+        Source code at
+        =link_to 'Github', 'http://github.com/mitkok/shorty/tree/master'

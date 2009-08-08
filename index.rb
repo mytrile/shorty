@@ -43,7 +43,7 @@ end
 def shorten_url
   db = Sequel.connect('postgres://username:password@localhost:5432/shorty')
   data = db[:data]
-
+  params[:url] = "http://"+params[:url] unless params[:url].match(/^http:\/\//)
   if (data.order(:id).last) 
     data.insert(:url => params[:url], :surl => data.order(:id).last[:surl].succ)
   else

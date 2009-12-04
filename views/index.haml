@@ -6,17 +6,17 @@
     %meta{ :author => "Mitko Kostov" }
     %title
       Shorty - URL shortener with Sinatra
-    %link{ 'type' => "text/css", :href   => "screen.css", :rel => 'stylesheet' }
+    %link{ 'type' => "text/css", :href   => "style.css", :rel => 'stylesheet' }
   %body
     .content
       %h1 Shorty
-      %form{ :action => "/", :method => "post", "accept-charset" => "utf-8", :class => 'new_pea', :id => 'new_pea' }
-        %label{ :for => 'pea_long_url'} Enter your long url
-        %input{ :name => "url", :type => "text", :value => "", :size => '30', :id => 'pea_long_url'}
-        %input{ :type => "submit", :value => "Shorten &rarr;", :id => 'pea_submit'}
+      %form{ :action => "/", :method => "post", "accept-charset" => "utf-8", :class => 'new_shorty', :id => 'new_shorty' }
+        %label{ :for => 'shorty_long_url'} Enter your long url
+        %input{ :name => "url", :type => "text", :value => "", :size => '30', :id => 'shorty_long_url'}
+        %input{ :type => "submit", :value => "Shorten &rarr;", :id => 'shorty_submit'}
       %br/
       - if @data
-        %h1
+        %h3
           ="Your url is #{HOST}" + @data.first[:surl]
       %br/
       %br/

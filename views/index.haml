@@ -2,28 +2,27 @@
 %html
   %head
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }
+    %meta{ :description => "Simple url shortener written in Ruby using Sinatra"   }
+    %meta{ :author => "Mitko Kostov" }
     %title
       Shorty - URL shortener with Sinatra
-    %link{ 'type' => "text/css", :href   => "style.css", :rel => 'stylesheet' }
+    %link{ 'type' => "text/css", :href   => "screen.css", :rel => 'stylesheet' }
   %body
-    #wrapper
-      %img{:src => "logo.png", :alt => "My Pic"}
-      .myform{:id => "stylized"}
-        %form{ :action => "/", :method => "post", "accept-charset" => "utf-8" }
-          %p
-            %input{ :name => "url", :type => "text", :value => "", :size => '36'  }
-            %input{ :type => "submit", :value => "Shorten &rarr;", :class => "button"}
-      %br/
+    .content
+      %h1 Shorty
+      %form{ :action => "/", :method => "post", "accept-charset" => "utf-8", :class => 'new_pea', :id => 'new_pea' }
+        %label{ :for => 'pea_long_url'} Enter your long url
+        %input{ :name => "url", :type => "text", :value => "", :size => '30', :id => 'pea_long_url'}
+        %input{ :type => "submit", :value => "Shorten &rarr;", :id => 'pea_submit'}
       %br/
       - if @data
         %h1
           ="Your url is #{HOST}" + @data.first[:surl]
       %br/
       %br/
-      %br/
-      %br/
-      %p
-        Developed by
-        =link_to 'Mitko Kostov', 'http://7thoughts.com/mitkok'
-        Source code at
-        =link_to 'Github', 'http://github.com/mitkok/shorty/tree/master'
+      .footer
+        %p
+          Developed by
+          =link_to 'Mitko Kostov.', 'http://mitkokostov.info'
+          Source code at
+          =link_to 'Github.', 'http://github.com/mitkok/shorty/tree/master'
